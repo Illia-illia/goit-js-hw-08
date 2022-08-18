@@ -20,17 +20,13 @@ const iframe = document.querySelector('iframe');
 const player = new Player(iframe);
 const TIME_KEY = 'videoplayer-current-time';
 
-onSetTimeAfterRefrsh();
-
 const onPlay = function (data) {
   localStorage.setItem(TIME_KEY, data.seconds);
-  console.log(localStorage.getItem(TIME_KEY));
+  // console.log(localStorage.getItem(TIME_KEY));
 };
 
-function onSetTimeAfterRefrsh() {
-  if (TIME_KEY) {
-    player.setCurrentTime(localStorage.getItem(TIME_KEY));
-  }
+if (TIME_KEY) {
+  player.setCurrentTime(localStorage.getItem(TIME_KEY));
 }
 
 player.on('timeupdate', throttle(onPlay, 1000));
