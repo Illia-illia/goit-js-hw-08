@@ -19,8 +19,9 @@ form.addEventListener('submit', onSubmitForm);
 
 function onInputWrite(e) {
   localStorage.clear(FORM_KEY);
-  localStorage.setItem(FORM_KEY, JSON.stringify(formData));
   formData[e.target.name] = e.target.value;
+  localStorage.setItem(FORM_KEY, JSON.stringify(formData));
+
   // console.log(localStorage.getItem(FORM_KEY));
 }
 
